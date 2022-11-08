@@ -1,0 +1,4 @@
+ CREATE TABLE upyrovaa.postac (id_postaci int AUTO INCREMENT PRIMARY KEY,
+    -> nazwa VARCHAR(40), rodzaj ENUM ("wiking", "ptak", "kobieta"), data_ur DATE , wiek int UNSIGNED);
+mysql> INSERT INTO postac  ( nazwa,rodzaj,data_ur, wiek)VALUES('Bjorn','wiking','2000-10-23',' 22');
+Query OK, 1 row affected (0.00 sec)
