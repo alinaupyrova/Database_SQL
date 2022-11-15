@@ -1,0 +1,19 @@
+zadanie 1:
+a) DELETE FROM postac where nazwa='Igor';
+ DELETE FROM postac where nazwa='Kacper';
+b) ALTER TABLE przetwory DROP FOREIGN KEY przetwory_ibfk_1;
+ ALTER TABLE walizka DROP FOREIGN KEY walizka_ibfk_2;
+ ALTER TABLE postac MODIFY id_postaci INT;
+ ALTER TABLE izba DROP FOREIGN KEY izba_ibfk_1;
+ ALTER TABLE postac DROP PRIMARY KEY;
+zadanie 2:
+a)  ALTER TABLE postac ADD pesel CHAR(11);
+UPDATE postac SET pesel='12345678911' WHERE id_postaci='1';
+UPDATE postac SET pesel='12345678326' WHERE id_postaci='2';
+UPDATE postac SET pesel='12345678245' WHERE id_postaci='3';
+UPDATE postac SET pesel='12345678436' WHERE id_postaci='15';
+UPDATE postac SET pesel='12345678234' WHERE id_postaci='16';
+UPDATE postac SET pesel='12345678278' WHERE id_postaci='17';
+ALTER TABLE postac ADD primary key(pesel);
+b) ALTER TABLE postac MODIFY rodzaj ENUM('wiking','ptak','kobieta','syrena');
+c)  ALTER TABLE postac MODIFY pesel CHAR(11) DEFAULT '1';
