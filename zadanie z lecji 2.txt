@@ -16,4 +16,18 @@ UPDATE postac SET pesel='12345678234' WHERE id_postaci='16';
 UPDATE postac SET pesel='12345678278' WHERE id_postaci='17';
 ALTER TABLE postac ADD primary key(pesel);
 b) ALTER TABLE postac MODIFY rodzaj ENUM('wiking','ptak','kobieta','syrena');
-c)  ALTER TABLE postac MODIFY pesel CHAR(11) DEFAULT '1';
+c) INSERT INTO postac(nazwa) VALUES ('Gertruda Nieszczera');
+
+zadanie 3:
+a) update postac set nazwa_statku='duze' where id_postaci=4;
+update postac set nazwa_statku='duze' where id_postaci=3;
+update postac set nazwa_statku='duze' where id_postaci=5;
+b) UPDATE statek SET max_wodownosc=7-(7*30/100) WHERE rodzaj_statku="male";
+ UPDATE statek SET max_wodownosc=14-(14*30/100) WHERE rodzaj_statku="duze";
+c) SELECT * from postac WHERE YEAR(data_ur) < 1022;
+
+zadanie 4:
+a)  ALTER TABLE postac MODIFY rodzaj ENUM('wiking', 'ptak', 'kobieta', 'syrena','waz');
+ INSERT INTO postac(id_postaci, nazwa, rodzaj, pesel) VALUES (8, "Loko", "waz", 12345678903);
+b)  CREATE TABLE marynarz (id_postaci int , nazwa VARCHAR(40), rodzaj ENUM ("wiking", "ptak", "kobieta", "syrena", "waz"), data_ur DATE , wiek int UNSIGNED,funkcja varchar(30),pesel char(11) primary key,nazwa_statku varchar(40));
+c) 
