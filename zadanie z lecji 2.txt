@@ -40,3 +40,9 @@ d) DROP TABLE statek;
 e) CREATE TABLE zwierz(id int primary key auto_increment, nazwa varchar(40), wiek int);
 f) INSERT INTO zwierz values (0,'Drozd',2);
  INSERT INTO zwierz values (0,'Loko',4);
+lekcja 3 
+zadanie 1:
+1) CREATE TABLE upyrovaa.kreatura SELECT * FROM wikingowie.kreatura;
+CREATE TABLE upyrovaa.ekwipunek select * from wikingowie.ekwipunek;
+create table upyrovaa.zasob select * from wikingowie.zasob;
+2)
