@@ -31,3 +31,12 @@ a)  ALTER TABLE postac MODIFY rodzaj ENUM('wiking', 'ptak', 'kobieta', 'syrena',
  INSERT INTO postac(id_postaci, nazwa, rodzaj, pesel) VALUES (8, "Loko", "waz", 12345678903);
 b)  CREATE TABLE marynarz (id_postaci int , nazwa VARCHAR(40), rodzaj ENUM ("wiking", "ptak", "kobieta", "syrena", "waz"), data_ur DATE , wiek int UNSIGNED,funkcja varchar(30),pesel char(11) primary key,nazwa_statku varchar(40));
 c) 
+zadanie 5:
+a)
+b) DELETE FROM postac  where nazwa='Ivan';
+c)DELETE FROM statek WHERE rodzaj_statku='male';
+DELETE FROM statek WHERE rodzaj_statku='duze';
+d) DROP TABLE statek;
+e) CREATE TABLE zwierz(id int primary key auto_increment, nazwa varchar(40), wiek int);
+f) INSERT INTO zwierz values (0,'Drozd',2);
+ INSERT INTO zwierz values (0,'Loko',4);
