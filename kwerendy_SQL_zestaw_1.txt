@@ -1,0 +1,54 @@
+Szadanie 2:
+CREATE TABLE walizka (id_walizki INT PRIMARY KEY AUTO_INCREMENT, pojemnosc INT UNSIGNED, kolor ENUM ("rozowy","czerwony","teczowy","zolty"),id_wlasciciela INT, FOREIGN KEY (id_wlasciciela) REFERENCES postac (id_postaci) ON DELETE CASCADE);
+ALTER TABLE walizka ALTER kolor SET DEFAULT 'rozowy';
+INSERT INTO walizka (pojemnosc,kolor,id_wlasciciela) VALUES ('20','zolty','1'),('20','rozowy','3');
+zadanie 1:
+CREATE TABLE upyrovaa.postac (id_postaci int AUTO_INCREMENT PRIMARY KEY, nazwa VARCHAR(40), rodzaj ENUM ("wiking", "ptak", "kobieta"), data_ur DATE , wiek int UNSIGNED);
+INSERT INTO postac  ( nazwa,rodzaj,data_ur, wiek)VALUES('Bjorn','wiking','2000-10-23',' 22');
+INSERT INTO postac  ( nazwa,rodzaj,data_ur, wiek)VALUES('Tescia','kobieta','1129-04-12','54');
+UPDATE postac SET wiek='88' WHERE nazwa='Tescia';
+INSERT INTO postac  ( nazwa,rodzaj,data_ur, wiek)VALUES('Drozd','ptak','2020-07-06',' 2');
+zadanie 3:
+CREATE TABLE izba (adres_budynky VARCHAR(50) NOT NULL , nazwa_izby VARCHAR(4d_postaci) ON DELETE SET NULL, PRIMARY KEY(adres_budynky, nazwa_izby));
+ALTER TABLE izba MODIFY kolor VARCHAR(20) DEFAULT 'czarny';
+INSERT INTO izba (adres_budynky, nazwa_izby, metraz, kolor,wlasciciel) VALUES ('ul.Czeslawa Kanafojskiego 3','spizarnia','45','czarny','1');
+zadanie 4:
+ CREATE TABLE przetwory (id_przetworu INT PRIMARY KEY AUTO_INCREMENT, id_wykonawcy INT,rok_produkcji INT DEFAULT '1654',zawartosc VARCHAR (40),dodatek VARCHAR (20) DEFAULT 'papryczka chilli', id_FOREIGN KEY (id_wykonawcy) REFERENCES postac(id_postaci),id_konsumenta INT, FOREIGN KEY (id_konsumenta) REFERENCES postac (id_postaci));
+ INSERT INTO przetwory(id_wykonawcy, zawartosc,dodatek,id_konsumenta) VALUES ('1','bigos','papryczka chilli','3');
+ alter table przetwory modify rok_produkcji int(4) DEFAULT '1654';
+ alter table przetwory modify dodatek varchar(20) default 'papryczka chilli';
+zadanie 5:
+ INSERT INTO postac (nazwa, rodzaj, data_ur,wiek) VALUES ('Stephan','wiking','1156-03-05','35');
+ INSERT INTO postac (nazwa, rodzaj,data_ur,wiek) VALUES ('Ivan','wiking','1165-02-07','25);
+ INSERT INTO postac (nazwa, rodzaj,data_ur,wiek) VALUES ('Kacper','wiking','1160-07-09','30);
+INSERT INTO postac (nazwa, rodzaj,data_ur,wiek) VALUES ('Igor','wiking','1157-12-08','34');
+CREATE TABLE statek (nazwa_statku VARCHAR (40), rodzaj_statku ENUM("duze","male"), data_wodowania DATE, max_wodownosc int UNSIGNED, PRIMARY KEY(nazwa_statku));
+ALTER TABLE postac ADD funkcja VARCHAR(30);
+UPDATE postac SET funkcja = 'kapitan' WHERE nazwa='Bjorn';
+ALTER TABLE postac ADD nazwa_statku VARCHAR(30);
+ALTER TABLE postac ADD FOREIGN KEY (nazwa_statku) REFERENCES statek(nazwa_statku);
+ UPDATE postac SET nazwa_statku='duze' WHERE id_postaci='1';
+ UPDATE postac SET nazwa_statku='duze' WHERE id_postaci='2';
+ UPDATE postac SET nazwa_statku='duze' WHERE id_postaci='3';
+ UPDATE postac SET nazwa_statku='male' WHERE id_postaci='4';
+ UPDATE postac SET nazwa_statku='duze' WHERE id_postaci='5';
+UPDATE postac SET nazwa_statku='duze' WHERE id_postaci='6';
+ UPDATE postac SET nazwa_statku='duze' WHERE id_postaci='7';
+ UPDATE postac SET nazwa_statku='duze' WHERE id_postaci='8';
+UPDATE postac SET nazwa_statku='duze' WHERE id_postaci='9'
+DELETE FROM izba WHERE nazwa_izby='spizarnia';
+DROP TABLE izba;
+Footer
+© 2022 GitHub, Inc.
+Footer navigation
+Terms
+Privacy
+Security
+Status
+Docs
+Contact GitHub
+Pricing
+API
+Training
+Blog
+About
