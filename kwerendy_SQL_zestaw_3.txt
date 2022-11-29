@@ -12,4 +12,12 @@ zadanie 2 :
 zadanie 3: 
 1) SELECT * FROM zasob WHERE MONTH(dataPozyskania) BETWEEN 7 AND 8;
 2)  SELECT * FROM zasob WHERE rodzaj IS NOT NULL ORDER BY waga ASC;
-3) 
+3) SELECT * FROM kreatura ORDER BY dataUr ASC LIMIT 5;
+zadanie 4 : 
+1) SELECT DISTINCT rodzaj FROM zasob WHERE rodzaj IS NOT NULL;
+2) SELECT CONCAT (nazwa ,'-', rodzaj) FROM kreatura WHERE rodzaj LIKE 'wi%';
+3) SELECT CONCAT (waga*ilosc) FROM zasob WHERE YEAR(dataPozyskania) BETWEEN 2000 AND 2007;
+zadanie 5 : 
+1) SELECT nazwa, 0.3*waga AS odpady,0.7*waga AS netto  FROM zasob;
+2) SELECT * FROM zasob WHERE rodzaj is NULL;
+3)  SELECT DISTINCT rodzaj,nazwa FROM zasob WHERE nazwa  LIKE 'Ba%' OR '%os';
