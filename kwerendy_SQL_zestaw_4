@@ -11,3 +11,7 @@ zadanie 3:
 # inner join - combination of some rows from 2 tables;
 2)  SELECT kreatura.idKreatury,ekwipunek.idZasobu, zasob.nazwa FROM kreatura INNER JOIN ekwipunek ON kreatura.idKreatury=ekwipunek.idKreatury INNER JOIN zasob on ekwipunek.idZasobu=zasob.idZasobu;
 3)  SELECT kreatura.idKreatury,ekwipunek.idkreatury FROM kreatura LEFT JOIN ekwipunek ON kreatura.idKreatury=ekwipunek.idKreatury;
+zadanie 4:
+1) SELECT kreatura.nazwa, YEAR(kreatura.dataUr) as rokUr, zasob.idZasobu, zasob.nazwa FROM kreatura CROSS JOIN ekwipunek ON kreatura.idKreatury=ekwipunek.idKreatury JOIN zasob ON zasob.idZasobu=ekwipunek.idZasobu HAVING rokUr  <1680
+AND rokUr>1660;
+2)  SELECT kreatura.nazwa,zasob.idZasobu,zasob.rodzaj FROM kreatura INNER JOIN ekwipunek ON ekwipunek.idKreatury=kreatura.idKreatury LEFT JOIN zasob ON zasob.idZasobu=ekwipunek.idZasobu HAVING rodzaj="jedzenie" ORDER BY kreatura.dataUr LIMIT 5;
