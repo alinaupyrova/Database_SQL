@@ -15,9 +15,10 @@ zadanie 4:
 1) SELECT kreatura.nazwa, YEAR(kreatura.dataUr) as rokUr, zasob.idZasobu, zasob.nazwa FROM kreatura CROSS JOIN ekwipunek ON kreatura.idKreatury=ekwipunek.idKreatury JOIN zasob ON zasob.idZasobu=ekwipunek.idZasobu HAVING rokUr  <1680
 AND rokUr>1660;
 2)  SELECT kreatura.nazwa,zasob.idZasobu,zasob.rodzaj FROM kreatura INNER JOIN ekwipunek ON ekwipunek.idKreatury=kreatura.idKreatury LEFT JOIN zasob ON zasob.idZasobu=ekwipunek.idZasobu HAVING rodzaj="jedzenie" ORDER BY kreatura.dataUr LIMIT 5;
+3) SELECT a.nazwa, b.nazwa, a.idKreatury, b.idKreatury from kreatura a JOIN kreatura b ON (a.idKreatury-b.idKreatury)=5;
 
 
 zadanie 5:
 1) SELECT k.rodzaj,SUM(e.ilosc*z.waga)/COUNT(DISTINCT(k.nazwa)) FROM kreatura k JOIN ekwipunek e on k.idKreatury=e.idKreatury JOIN zasob z ON e.idZasobu=z.idZasobu WHERE k.rodzaj NOT IN('malpa','waz') GROUP BY k.rodzaj;
-2) SELECT k.rodzaj,MAX(k.dataUr),MIN(k.dataUR) FROM kreatura k GROUP BY k.rodzaj; (trzeba dorobic)
+2) SELECT k.rodzaj,MAX(k.dataUr),MIN(k.dataUR) FROM kreatura k GROUP BY k.rodzaj;
 # mozna uzyc UNION (zeby wypiscz wyniky dwoch tabel)
