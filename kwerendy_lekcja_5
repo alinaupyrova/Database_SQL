@@ -1,0 +1,8 @@
+
+zad 1 
+1)  create table kreatura1 as select * from wikingowie.kreatura;
+ CREATE TABLE etapy_wyprawy as select * from wikingowie.etapy_wyprawy;
+
+zad 2 
+1) SELECT w.nazwa,COUNT(id_uczestnika) FROM wyprawa w INNER JOIN uczestnicy u ON w.id_wyprawy=u.id_uczestnika;
+2)  SELECT w.nazwa,COUNT(id_uczestnika),GROUP_CONCAT(k.nazwa) FROM wyprawa w INNER JOIN uczestnicy u ON w.id_wyprawy=u.id_uczestnika JOIN kreatura k  ON  k.idKreatury=u.id_uczestnika  GROUP BY nazwa;
