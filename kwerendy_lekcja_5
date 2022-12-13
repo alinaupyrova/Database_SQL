@@ -2,7 +2,10 @@
 zad 1 
 1)  create table kreatura1 as select * from wikingowie.kreatura;
  CREATE TABLE etapy_wyprawy as select * from wikingowie.etapy_wyprawy;
-
+ CREATE TABLE wyprawa as select * from wikingowie.wyprawa;
+ CREATE TABLE sektor as select * from wikingowie.sektor;
+CREATE TABLE uczestnicy as select * from wikingowie.uczestnicy;
+2) SELECT nazwa FROM kreatura k LEFT OUTER JOIN uczestnicy u ON u.id_uczestnika=k.idKreatury where u.id_uczestnika is null;
+3)  SELECT w.nazwa,SUM(e.ilosc) FROM wyprawa w inner  JOIN  uczestnicy u ON w.id_wyprawy=u.id_wyprawy INNER JOIN ekwipunek e on u.id_uczestnika=idKreatury;
 zad 2 
-1) SELECT w.nazwa,COUNT(id_uczestnika) FROM wyprawa w INNER JOIN uczestnicy u ON w.id_wyprawy=u.id_uczestnika;
-2)  SELECT w.nazwa,COUNT(id_uczestnika),GROUP_CONCAT(k.nazwa) FROM wyprawa w INNER JOIN uczestnicy u ON w.id_wyprawy=u.id_uczestnika JOIN kreatura k  ON  k.idKreatury=u.id_uczestnika  GROUP BY nazwa;
+1)  SELECT w.nazwa,COUNT(id_uczestnika),GROUP_CONCAT(k.nazwa) FROM wyprawa w INNER JOIN uczestnicy u ON w.id_wyprawy=u.id_uczestnika JOIN kreatura k  ON  k.idKreatury=u.id_uczestnika  GROUP BY nazwa;
