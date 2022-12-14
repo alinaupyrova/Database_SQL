@@ -1,11 +1,11 @@
 zadanie 1:
 1) SELECT AVG (waga) FROM kreatura WHERE rodzaj="wiking";     #srednia wartosc
 2)  SELECT rodzaj, AVG(waga), COUNT(nazwa) FROM kreatura GROUP BY rodzaj;   #count - liczba ..., #group by - dla kazdego NA PRZYKLAD rodzaju.
-3)  SELECT rodzaj, AVG (YEAR(dataUr)) FROM  kreatura GROUP BY rodzaj; 
+3) SELECT rodzaj,AVG(YEAR(NOW())-YEAR(dataUr))as sredni_wiek FROM kreatura GROUP BY rodzaj;
 zadanie 2:
-1) SELECT rodzaj, SUM(waga) FROM zasob GROUP BY rodzaj;
+1) SELECT rodzaj, SUM(waga*ilosc) FROM zasob GROUP BY rodzaj;
 2) SELECT nazwa, AVG(waga) as 'srednia waga' FROM zasob GROUP BY nazwa HAVING SUM(waga)>10 AND SUM(ilosc) >= 4;
-??? 3) SELECT rodzaj, COUNT(nazwa) as nazwa FROM zasob GROUP BY rodzaj HAVING MIN(COUNT(nazwa))>1;   ???
+3) SELECT rodzaj, COUNT(DISTINCT(nazwa)) FROM zasob GROUP BY rodzaj HAVING (COUNT(nazwa))>1;
 zadanie 3:
 1)  SELECT kreatura.idKreatury,ekwipunek.ilosc FROM kreatura INNER JOIN ekwipunek ON kreatura.idKreatury=ekwipunek.idKreatury;
 # inner join - combination of some rows from 2 tables;
