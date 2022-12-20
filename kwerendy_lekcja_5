@@ -9,3 +9,11 @@ CREATE TABLE uczestnicy as select * from wikingowie.uczestnicy;
 3)  SELECT w.nazwa,SUM(e.ilosc) FROM wyprawa w inner  JOIN  uczestnicy u ON w.id_wyprawy=u.id_wyprawy INNER JOIN ekwipunek e on u.id_uczestnika=idKreatury;
 zad 2 
 1)  SELECT w.nazwa,COUNT(id_uczestnika),GROUP_CONCAT(k.nazwa) FROM wyprawa w INNER JOIN uczestnicy u ON w.id_wyprawy=u.id_uczestnika JOIN kreatura k  ON  k.idKreatury=u.id_uczestnika  GROUP BY nazwa;
+2)
+zad 3 
+1)select s.nazwa,count(e.sektor) from sektor s left join etapy_wyprawy e on s.id_sektora=e.sektor  group by(s.nazwa);
+2)
+
+zad 4:
+1)select w.nazwa,sum(length(e.dziennik)) from wyprawa w inner join etapy_wyprawy e on e.idWyprawy=w.id_wyprawy group by w.nazwa having sum(length(e.dziennik))<400;
+2) 
