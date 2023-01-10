@@ -6,6 +6,12 @@ FOR EACH ROW BEGIN
  SET MESSAGE_TEXT = 'waga nie moze byc mniejsza lub rowna 0';
  END IF;
 END$$ DELIMITER;
+-----------------
+CHECKING
+-----------------
+INSERT INTO kreatura VALUES(21,'Seref','wiking','1670-09-06',0,50);
+INSERT INTO kreatura VALUES(21,'Seref','wiking','1670-09-06',34,50);
+
 b) DELIMITER $$
 CREATE TRIGGER waga_tr_2 BEFORE UPDATE ON kreatura
 FOR EACH ROW BEGIN
@@ -13,13 +19,18 @@ FOR EACH ROW BEGIN
  SET MESSAGE_TEXT = 'waga nie moze byc mniejsza lub rowna 0';
  END IF;
 END$$ DELIMITER;
+---------------
+CHECKING 
+---------------
+UPDATE kreatura SET waga = 0 WHERE idKreatury = 21;
+UPDATE kreatura SET waga = 40 WHERE idKreatury = 21;
 zad 2: 
 a) CREATE TABLE archiwum_wypraw(
 id_wyprawy INT NOT NULL AUTO_INCREMENT,
 nazwa VARCHAR(25), 
 data_rozpoczecia DATE, 
 data_zakonczenia DATE,
-kierownik VARCHAR(100));
+kierownik VARCHAR(100),PRIMARY KEY(id_wyprawy));
 b)DELIMITER $$ 
 CREATE TRIGGER tr_wyprawa 
 AFTER DELETE ON wyprawa 
@@ -35,20 +46,26 @@ BEGIN UPDATE kreatura
 SET udzwig = udzwig * 1.2 
 WHERE id_kreatury=id_kreatury;
 END;
-B)CREATE FUNCTION zm(tekst 
-VARCHAR(255)) 
-RETURNS VARCHAR (225) 
-BEGIN DECLARE res VARCHAR (255);
-SET res = UPPER(tekst);
-RETURN res;
-END;
+-----------
+CALL eliksir_sily(20);
+-----------
+B)CREATE FUNCTION to_uppercase(text VARCHAR(225))
+RETURNS VARCHAR(225)
+BEGIN
+    RETURN UPPER(text);
+END; ----- DID NOT WORK
 zad 4:
-a)
-
-
-
-
-
+a) CREATE TABLE system_alarmowy(id_alarmu INT NOT NULL auto_increment, wiadomosc VARCHAR(50), PRIMARY KEY(id_alarmu));
+b) DELIMITER $$ 
+CREATE TRIGGER tr_misja
+AFTER INSERT ON wyprawy 
+FOR EACH ROW
+IF (NEW.udzial='tesciowa' and new.sektory like '%Domek Dziadka%');
+BEGIN 
+INSERT INTO system_alarmowy(message) VALUES('Tesciowa nadchodzi !!!');
+END IF;
+END $$
+DELIMITER ; ---- DID NOT WORK;
 zad 5:
 
 
