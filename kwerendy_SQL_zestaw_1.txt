@@ -38,17 +38,3 @@ UPDATE postac SET nazwa_statku='duze' WHERE id_postaci='6';
 UPDATE postac SET nazwa_statku='duze' WHERE id_postaci='9'
 DELETE FROM izba WHERE nazwa_izby='spizarnia';
 DROP TABLE izba;
-Footer
-© 2022 GitHub, Inc.
-Footer navigation
-Terms
-Privacy
-Security
-Status
-Docs
-Contact GitHub
-Pricing
-API
-Training
-Blog
-About
